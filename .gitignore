@@ -1,4 +1,5 @@
-*.o
-*.out
-.ipynb_checkpoints
-.vscode
+*
+!*.cpp
+!*.h
+!.gitignore
+!Makefile
