@@ -26,11 +26,11 @@ int main() {
     // parallel prefix sum
     #pragma omp parallel for
     for (int i = 0; i <= range; i++) offset[i] = bucket[i];
-    #pragma omp parallel
+    
     for (int w = 1; w < range; w <<= 1) {
-        #pragma omp for
+        #pragma omp parallel for
         for (int i = 1; i <= range; i++) bucket[i] = offset[i];
-        #pragma omp for
+        #pragma omp parallel for
         for (int i = w; i <= range; i++) offset[i] += bucket[i - w];
     }
 
